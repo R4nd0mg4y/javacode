@@ -1,0 +1,24 @@
+package ELAB2308;
+
+abstract class Car {
+	protected double price;
+	protected int year;
+	public static double Max;
+	public Car() {
+		
+	}
+	public Car(double price,int year) {
+		this.price = price;
+		this.year = year;
+	}
+	public String toString() {
+		return "Price: " +price+ "| Year: " +2015;
+	}
+	public static void MaxPrice(double price) {
+		if(price > Max) {
+			Max = price;
+		}
+	}
+	abstract double calculateSalePrice();
+	
+}

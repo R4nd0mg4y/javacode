@@ -1,0 +1,80 @@
+import java.util.*;
+class Point {
+	// Private variables
+	String name;
+    private double x; // x co-ordinate
+    private double y; // y co-ordinate
+    private double z; // y co-ordinate
+    // Constructor
+    public Point (String name,double x, double y, double z) {
+    	this.name = name;
+    	this.x = x;
+    	this.y = y;
+    	this.z = z;
+    }
+    public String getName() {
+    	return name;
+    }
+    
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public double getZ() {
+        return z;
+    }
+
+   
+}
+public class Main {
+
+	public static void main(String[] args) {
+		List<Point> list = new ArrayList<>();
+		Scanner sc = new Scanner(System.in);
+		int check = 0;
+		Point target = null;
+		String name;
+		String targetName = null;
+		while(true) {
+			try {
+				name = sc.nextLine();
+				targetName = name;
+				String S[] = sc.nextLine().split("\\s+");
+				if(name.length()!=1) {
+					check = 1;
+				}
+				if(S.length !=3 ) {
+					check = 1;
+				}
+				if(check == 0) {
+					Point p = new Point(name,Double.parseDouble(S[0]),Double.parseDouble(S[1]),Double.parseDouble(S[2]));
+					list.add(p);
+				}
+			} catch (Exception e) {
+				break;
+			}
+		}
+	if(check ==0 ) {
+		System.out.println("invalid input");
+	} else {
+		for(Point p:list) {
+			if(p.getName().equals(targetName)) {
+				target = p;
+			}
+		}
+		for(Point p:list) {
+			if(!target.getName().equals(p.getName())) {
+				   double x1 = Math.pow(target.getX() - p.getX(), 2);
+			       double x2 = Math.pow(target.getY() - p.getY(), 2);
+			       double x3 = Math.pow(target.getZ() - p.getZ(), 2);
+				System.out.println("Line "+target.getName()+""+p.getName()+": "+x1+x2+x3);
+			}
+		}
+	}
+	}
+
+}

@@ -1,0 +1,21 @@
+package OOP004;
+import java.util.*;
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		
+		int t = sc.nextInt();
+		sc.nextLine();
+		while(t-- > 0) {
+			String input = sc.nextLine();
+			String S[] = input.split("\\s+");
+			Point p1 = new Point(Integer.parseInt(S[0]),Integer.parseInt(S[1]));
+			Point p2 = new Point(Integer.parseInt(S[2]),Integer.parseInt(S[3]));
+			p1.move(1, 1);
+			System.out.println(String.format("%0.2f", p1.Distance(p2)));
+		}
+	}
+
+}
